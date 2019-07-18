@@ -27,7 +27,7 @@ public class LoginServlet extends HttpServlet {
 		int emp_id = Integer.parseInt(id);
 		String password = request.getParameter("t2");
 		ApplicationContext ctx = new ClassPathXmlApplicationContext("employeeimp.xml");
-		EmpDAOImplementation empdi =(EmpDAOImplementation)ctx.getBean("empdi"); 
+		EmpDAO empdi =(EmpDAO)ctx.getBean("empdi"); 
 		if(empdi.loginCheck(emp_id,password) == true)
 		{
 			RequestDispatcher rd = request.getRequestDispatcher("Welcome.jsp");

@@ -28,7 +28,7 @@ public class EmpDAOImplementation implements EmpDAO {
 		
 	}
 	
-	
+	@Override
 	public Emp getEmp(String emp_id)
 	{
 		try
@@ -57,6 +57,7 @@ public class EmpDAOImplementation implements EmpDAO {
 		return null;
 	}
 	
+	@Override
 	public boolean loginCheck(int emp_id,String password)
 	{
 		try
@@ -123,20 +124,23 @@ public class EmpDAOImplementation implements EmpDAO {
 	@Override
 	public boolean updateEmp(Emp e) {
 		try {
-			PreparedStatement stmt = con.prepareStatement("Update Employee set emp_name=? where emp_id=?");
 			
+			PreparedStatement stmt = con.prepareStatement("Update Employee set emp_name=? where emp_id=?");
 			stmt.setString(1,e.getName());
 			stmt.setInt(2,e.getId());
+			stmt.executeUpdate();
 			stmt = con.prepareStatement("Update Employee set emp_age=? where emp_id=?");
 			stmt.setInt(1,e.getAge());
 			stmt.setInt(2,e.getId());
+			stmt.executeUpdate();
 			stmt = con.prepareStatement("Update Employee set emp_project=? where emp_id=?");
 			stmt.setString(1,e.getProject());
 			stmt.setInt(2,e.getId());
-			stmt = con.prepareStatement("Update Employee set emp_role=? where emp_id=?");
+			stmt.executeUpdate();
+			stmt = con.prepareStatement("Update Employee set role=? where emp_id=?");
 			stmt.setString(1,e.getRole());
 			stmt.setInt(2,e.getId());
-			
+			stmt.executeUpdate();
 			
 			
 			return true;

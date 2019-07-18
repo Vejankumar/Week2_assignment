@@ -25,7 +25,7 @@ public class Delete extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		ApplicationContext ctx = new ClassPathXmlApplicationContext("employeeimp.xml");
-		EmpDAOImplementation empdi =(EmpDAOImplementation)ctx.getBean("empdi"); 
+		EmpDAO empdi =(EmpDAO)ctx.getBean("empdi"); 
 		
 		empdi.deleteEmp(request.getParameter("t1"));
 	}

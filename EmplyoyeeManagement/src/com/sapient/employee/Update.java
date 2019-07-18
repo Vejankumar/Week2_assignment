@@ -25,16 +25,16 @@ public class Update extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		Emp e = new Emp();
-		String id = (request.getParameter("t1"));
-		System.out.println(id);
-		e.setId(Integer.parseInt(id));
+		e.setId(Integer.parseInt(request.getParameter("t1")));
 		e.setName(request.getParameter("t2"));
 		e.setProject(request.getParameter("t3"));
 		e.setAge(Integer.parseInt(request.getParameter("t4")));
-		e.setPsw("123");
-		e.setRole(request.getParameter("t5"));
-	
-		EmpDAOImplementation empdi = new EmpDAOImplementation();
+		e.setPsw("t5");
+		e.setRole(request.getParameter("t6"));
+		System.out.println(e);
+		
+		ApplicationContext ctx = new ClassPathXmlApplicationContext("employeeimp.xml");
+		EmpDAO empdi =(EmpDAO)ctx.getBean("empdi");
 		if(empdi.updateEmp(e))
 		{
 			

@@ -44,7 +44,7 @@
 	<br><br>
   <div class="container">
    <label for="id"><b>Id</b></label>
-    <input type="text" name="t1"   value="<%= e.getId() %>" disabled ><br><br>
+    <input type="text" name="t1"   value="<%= e.getId() %>" readonly ><br><br>
 
     <label for="name"><b>Name</b></label>
     <input type="text"  name="t2" value="<%= e.getName() %>"   required><br><br>
@@ -57,7 +57,7 @@
     
     
      <label for="psw"><b>Password</b></label>
-    <input type="password"  name="t5"  value="<%= e.getPsw() %>" disabled ><br><br>
+    <input type="password"  name="t5"  value="<%= e.getPsw() %>" readonly ><br><br>
       
     <label for="role"><b>Role</b></label>
     <input type="text"  name="t6"  value="<%= e.getRole() %>" required><br><br>

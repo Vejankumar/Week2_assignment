@@ -25,7 +25,7 @@ public class RegisterServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		ApplicationContext ctx = new ClassPathXmlApplicationContext("employeeimp.xml");
-		EmpDAOImplementation empdi =(EmpDAOImplementation)ctx.getBean("empdi"); 
+		EmpDAO empdi =(EmpDAO)ctx.getBean("empdi");
 		Emp e = new Emp();
 		e.setId(Integer.parseInt(request.getParameter("t1")));
 		e.setName(request.getParameter("t2"));
